@@ -144,67 +144,67 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      {/* Stats Cards */}
+      {/* Cards de Estatísticas */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="shadow-card hover:shadow-hover transition-all duration-300">
+        <Card className="shadow-card hover:shadow-hover transition-all duration-300 animate-scale-in">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium font-inter">Total Resumes</CardTitle>
+            <CardTitle className="text-sm font-medium font-inter">Total de Currículos</CardTitle>
             <FileText className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold font-poppins">{stats.total}</div>
             <p className="text-xs text-muted-foreground font-inter">
-              +12% from last month
+              +12% desde o mês passado
             </p>
           </CardContent>
         </Card>
 
-        <Card className="shadow-card hover:shadow-hover transition-all duration-300">
+        <Card className="shadow-card hover:shadow-hover transition-all duration-300 animate-scale-in">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium font-inter">Perfect Matches</CardTitle>
+            <CardTitle className="text-sm font-medium font-inter">Compatibilidades Perfeitas</CardTitle>
             <CheckCircle className="h-4 w-4 text-perfect" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold font-poppins text-perfect">{stats.perfect}</div>
             <p className="text-xs text-muted-foreground font-inter">
-              {Math.round((stats.perfect / stats.total) * 100)}% of total
+              {Math.round((stats.perfect / stats.total) * 100)}% do total
             </p>
           </CardContent>
         </Card>
 
-        <Card className="shadow-card hover:shadow-hover transition-all duration-300">
+        <Card className="shadow-card hover:shadow-hover transition-all duration-300 animate-scale-in">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium font-inter">Avg. Score</CardTitle>
+            <CardTitle className="text-sm font-medium font-inter">Pontuação Média</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold font-poppins">{stats.avgScore}%</div>
             <p className="text-xs text-muted-foreground font-inter">
-              +5.2% from last week
+              +5.2% da semana passada
             </p>
           </CardContent>
         </Card>
 
-        <Card className="shadow-card hover:shadow-hover transition-all duration-300">
+        <Card className="shadow-card hover:shadow-hover transition-all duration-300 animate-scale-in">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium font-inter">Processing</CardTitle>
+            <CardTitle className="text-sm font-medium font-inter">Processando</CardTitle>
             <Clock className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold font-poppins">3</div>
             <p className="text-xs text-muted-foreground font-inter">
-              Currently analyzing
+              Analisando atualmente
             </p>
           </CardContent>
         </Card>
       </div>
 
-      {/* Filters and Search */}
-      <Card className="shadow-card">
+      {/* Filtros e Busca */}
+      <Card className="shadow-card animate-fade-in">
         <CardHeader>
-          <CardTitle className="font-poppins">Resume Library</CardTitle>
+          <CardTitle className="font-poppins">Biblioteca de Currículos</CardTitle>
           <CardDescription className="font-inter">
-            View and analyze all uploaded resumes with AI-powered matching scores
+            Visualize e analise todos os currículos enviados com pontuação de compatibilidade alimentada por IA
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -213,7 +213,7 @@ export default function Dashboard() {
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
-                  placeholder="Search by name, email, or skills..."
+                  placeholder="Buscar por nome, email ou habilidades..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10 font-inter shadow-card hover:shadow-hover transition-all duration-300"
@@ -238,11 +238,11 @@ export default function Dashboard() {
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/50">
-                  <TableHead className="font-poppins font-semibold">Candidate</TableHead>
-                  <TableHead className="font-poppins font-semibold">Score</TableHead>
-                  <TableHead className="font-poppins font-semibold">Skills</TableHead>
-                  <TableHead className="font-poppins font-semibold">Experience</TableHead>
-                  <TableHead className="font-poppins font-semibold">Uploaded</TableHead>
+                  <TableHead className="font-poppins font-semibold">Candidato</TableHead>
+                  <TableHead className="font-poppins font-semibold">Pontuação</TableHead>
+                  <TableHead className="font-poppins font-semibold">Habilidades</TableHead>
+                  <TableHead className="font-poppins font-semibold">Experiência</TableHead>
+                  <TableHead className="font-poppins font-semibold">Enviado em</TableHead>
                   <TableHead className="font-poppins font-semibold w-[50px]"></TableHead>
                 </TableRow>
               </TableHeader>
@@ -250,7 +250,7 @@ export default function Dashboard() {
                 {filteredResumes.map((resume) => (
                   <TableRow 
                     key={resume.id} 
-                    className="hover:bg-muted/30 transition-all duration-200 cursor-pointer animate-scale-in"
+                    className="hover:bg-muted/30 transition-all duration-300 cursor-pointer animate-slide-up hover:scale-[1.01]"
                     onClick={() => handleViewResume(resume)}
                   >
                     <TableCell>
@@ -270,27 +270,28 @@ export default function Dashboard() {
                     <TableCell>
                       <div className="flex flex-wrap gap-1 max-w-[200px]">
                         {resume.skills?.slice(0, 3).map((skill, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs font-inter">
+                          <Badge key={index} variant="secondary" className="text-xs font-inter animate-fade-in">
                             {skill}
                           </Badge>
                         ))}
                         {resume.skills && resume.skills.length > 3 && (
-                          <Badge variant="secondary" className="text-xs font-inter">
+                          <Badge variant="secondary" className="text-xs font-inter animate-fade-in">
                             +{resume.skills.length - 3}
                           </Badge>
                         )}
                       </div>
                     </TableCell>
                     <TableCell className="font-inter">
-                      {resume.experience_years} years
+                      {resume.experience_years} anos
                     </TableCell>
                     <TableCell className="font-inter text-sm text-muted-foreground">
-                      {new Date(resume.created_at).toLocaleDateString()}
+                      {new Date(resume.created_at).toLocaleDateString('pt-BR')}
                     </TableCell>
                     <TableCell>
                       <Button 
                         variant="ghost" 
                         size="sm"
+                        className="hover:scale-110 transition-transform duration-200"
                         onClick={(e) => {
                           e.stopPropagation();
                           handleViewResume(resume);
@@ -306,11 +307,11 @@ export default function Dashboard() {
           </div>
 
           {filteredResumes.length === 0 && (
-            <div className="text-center py-8">
-              <FileText className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-poppins font-semibold">No resumes found</h3>
+            <div className="text-center py-8 animate-fade-in">
+              <FileText className="w-12 h-12 text-muted-foreground mx-auto mb-4 animate-float" />
+              <h3 className="text-lg font-poppins font-semibold">Nenhum currículo encontrado</h3>
               <p className="text-muted-foreground font-inter">
-                Try adjusting your search criteria or upload new resumes.
+                Tente ajustar seus critérios de busca ou envie novos currículos.
               </p>
             </div>
           )}

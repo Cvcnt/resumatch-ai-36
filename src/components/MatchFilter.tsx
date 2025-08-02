@@ -17,16 +17,16 @@ export function MatchFilter({ value, onValueChange, counts }: MatchFilterProps) 
   return (
     <div className="flex items-center gap-3">
       <label className="text-sm font-medium font-inter text-foreground">
-        Filter by Match Type:
+        Filtrar por Tipo de Compatibilidade:
       </label>
       <Select value={value} onValueChange={onValueChange}>
-        <SelectTrigger className="w-[200px] font-inter shadow-card hover:shadow-hover transition-all duration-300">
-          <SelectValue placeholder="All matches" />
+        <SelectTrigger className="w-[220px] font-inter shadow-card hover:shadow-hover transition-all duration-300 animate-fade-in">
+          <SelectValue placeholder="Todas as compatibilidades" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="all" className="font-inter">
             <div className="flex items-center justify-between w-full">
-              <span>All Matches</span>
+              <span>Todas as Compatibilidades</span>
               {counts && <Badge variant="secondary" className="ml-2">{counts.all}</Badge>}
             </div>
           </SelectItem>
@@ -34,7 +34,7 @@ export function MatchFilter({ value, onValueChange, counts }: MatchFilterProps) 
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-perfect" />
-                <span>Perfect</span>
+                <span>Perfeita</span>
               </div>
               {counts && <Badge variant="secondary" className="ml-2">{counts.perfect}</Badge>}
             </div>
@@ -43,7 +43,7 @@ export function MatchFilter({ value, onValueChange, counts }: MatchFilterProps) 
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-strong" />
-                <span>Strong</span>
+                <span>Forte</span>
               </div>
               {counts && <Badge variant="secondary" className="ml-2">{counts.strong}</Badge>}
             </div>
@@ -52,7 +52,7 @@ export function MatchFilter({ value, onValueChange, counts }: MatchFilterProps) 
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-partial" />
-                <span>Partial</span>
+                <span>Parcial</span>
               </div>
               {counts && <Badge variant="secondary" className="ml-2">{counts.partial}</Badge>}
             </div>
@@ -61,7 +61,7 @@ export function MatchFilter({ value, onValueChange, counts }: MatchFilterProps) 
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-weak" />
-                <span>Weak</span>
+                <span>Fraca</span>
               </div>
               {counts && <Badge variant="secondary" className="ml-2">{counts.weak}</Badge>}
             </div>
