@@ -10,31 +10,31 @@ const getMatchTypeInfo = (matchType: string) => {
   switch (matchType) {
     case 'perfect':
       return {
-        label: 'Perfect Match',
+        label: 'Perfeito',
         bgClass: 'bg-perfect/10 text-perfect border-perfect/20',
         iconClass: 'text-perfect'
       };
     case 'strong':
       return {
-        label: 'Strong Match', 
+        label: 'Forte', 
         bgClass: 'bg-strong/10 text-strong border-strong/20',
         iconClass: 'text-strong'
       };
     case 'partial':
       return {
-        label: 'Partial Match',
+        label: 'Parcial',
         bgClass: 'bg-partial/10 text-partial border-partial/20', 
         iconClass: 'text-partial'
       };
     case 'weak':
       return {
-        label: 'Weak Match',
+        label: 'Fraco',
         bgClass: 'bg-weak/10 text-weak border-weak/20',
         iconClass: 'text-weak'
       };
     default:
       return {
-        label: 'Unknown',
+        label: 'Desconhecido',
         bgClass: 'bg-muted text-muted-foreground border-border',
         iconClass: 'text-muted-foreground'
       };
